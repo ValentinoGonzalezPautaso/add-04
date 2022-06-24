@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-pi-pico",
+      "id": "pico",
+      "top": 0,
+      "left": 0,
+      "attrs": { "builder": "pico-sdk" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 103.43,
+      "left": 148.55,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": 5.02,
+      "left": 93.88,
+      "attrs": { "color": "limegreen" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led3",
+      "top": 52.08,
+      "left": 121.96,
+      "attrs": { "color": "yellow" }
+    },
+    { "type": "wokwi-hc-sr04", "id": "ultrasonic1", "top": 8.84, "left": -179.9, "attrs": {} }
+  ],
+  "connections": [
+    [ "pico:GP0", "$serialMonitor:RX", "", [] ],
+    [ "pico:GP1", "$serialMonitor:TX", "", [] ],
+    [ "pico:GP28", "led3:A", "green", [ "h0" ] ],
+    [ "led3:C", "pico:GND.7", "green", [ "v0" ] ],
+    [ "pico:GP22", "led2:A", "green", [ "h0" ] ],
+    [ "led2:C", "pico:GND.6", "green", [ "v0" ] ],
+    [ "pico:GP21", "led1:A", "green", [ "h0" ] ],
+    [ "pico:GND.5", "led1:C", "green", [ "h0" ] ],
+    [ "ultrasonic1:ECHO", "pico:GP26", "green", [ "v0" ] ],
+    [ "ultrasonic1:GND", "pico:GND.8", "black", [ "v-74.26", "h160.21" ] ],
+    [ "ultrasonic1:TRIG", "pico:GP27", "green", [ "v0" ] ],
+    [ "ultrasonic1:VCC", "pico:3V3", "red", [ "v0" ] ]
+  ]
+}
